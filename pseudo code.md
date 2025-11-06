@@ -32,7 +32,7 @@ FONCTION afficher_menu(menu)
         AFFICHER plat + " - " + prix + "$"
     
     FIN FONCTION
-FONCTION prendre_commande(menu)
+FONCTION prendre_commande(menu)#keyshawn
 
     DEMANDER "Quel plat choisissez-vous ?"
     LIRE plat_choisi
@@ -44,7 +44,7 @@ FONCTION prendre_commande(menu)
         RETOURNER AUCUN
     
     FIN FONCTION
-FONCTION generer_facture(commande, caissier)
+FONCTION generer_facture(commande, caissier)#keyshawn
 
     AFFICHER "--- Facture ---"
     AFFICHER "Plat : " + commande.nom
