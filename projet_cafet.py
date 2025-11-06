@@ -20,7 +20,34 @@ def afficher_menu(menu):
 def choisir_plat():
 
 
-def generer_facture():
+def prendre_commande(): #Keysahwn
+    while True:
+        commande = input("Que voulez-vous dans votre commande si vous voulez arrêter pesez enter")
+        list_commande = []
+        list_commande.append(commande)
+        if commande == "":
+            print(f"Voici votre commande {list_commande}")
+            break
 
 
-if__name__=="__main__":
+def generer_facture(commande : list): #Keysahwn
+    prix_tot = 0
+    for i in commande:
+        if i == "poulet rôti":
+            prix_tot += 12
+        elif i == "pâte alfredo":
+            prix_tot += 10.5
+        elif i == "crêpes":
+            prix_tot += 5.5
+        elif i == "omelette":
+            prix_tot += 6
+        elif i == "Tortilla aux œufs":
+            prix_tot += 7
+        elif i == "burger":
+            prix_tot += 11
+
+
+
+
+if __name__=="__main__":
+    print("")
