@@ -20,7 +20,7 @@ def afficher_menu(menu):
 def choisir_plat():
 
 
-def prendre_commande(): #Keysahwn
+def prendre_commande(): #Keyshawn
     while True:
         commande = input("Que voulez-vous dans votre commande si vous voulez arrêter pesez enter")
         list_commande = []
@@ -30,7 +30,7 @@ def prendre_commande(): #Keysahwn
             break
 
 
-def generer_facture(commande : list): #Keysahwn
+def generer_facture(commande : list): #Keyshawn
     prix_tot = 0
     for i in commande:
         if i == "poulet rôti":
