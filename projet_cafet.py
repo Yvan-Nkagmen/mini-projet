@@ -30,7 +30,7 @@ def obtenir_menu_du_jour(service, jour): #djawad
             ["Mardi": {"Burger": 11, "Soupe + sandwich": 8.5}],
             ["Mercredi": {"poulet au curry"}]
         ]
-
+hhh
 
 
 
