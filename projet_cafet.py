@@ -12,12 +12,45 @@ def verifier_heure(heure):  #yvan
     else:
         return "diner"
 
-def afficher_menu(menu):
 
+
+def obtenir_menu_du_jour(service, jour): #djawad
+    if service=="dejeuner":
+        menus_du_dejeuner = [
+        ["Lundi": {"Crêpes": 5.5, "Omelette": 6}],
+        ["Mardi": {"Bagel": 4.5, "Smoothie": 5.0}],
+        ["Mercredi": {"pain": 3.5, "jus d'orange": 3.0}],
+        ["jeudi":{"croissant": 3.5, "café": 4.0}],
+        ["vendredi": {"céréales": 5.0, "pomme": 2.0}]
+    ]
+        return menus_du_dejeuner
+    else:
+        menus_du_diner = [
+            ["Lundi": {"Poulet rôti": 12, "Pâtes Alfredo": 10.5}],
+            ["Mardi": {"Burger": 11, "Soupe + sandwich": 8.5}],
+            ["Mercredi": {"poulet au curry"}]
+        ]
+
+
+
+
+
+
+
+
+
+
+
+
+def afficher_menu(menu): #yvan
+    """
+    affiche le menu du jour avec les plats et les prix.
+    :param menu: dictionnaire contenant les plats
+    :return:
+    """
     print("==== Menu de jour ====")
-
-
-def choisir_plat():
+    for  plat, prix in menu.items():
+        print(plat,"-",prix,"$")
 
 
 def prendre_commande(): #Keyshawn
@@ -37,16 +70,51 @@ def generer_facture(commande : list): #Keyshawn
             prix_tot += 12
         elif i == "pâte alfredo":
             prix_tot += 10.5
-        elif i == "crêpes":
-            prix_tot += 5.5
-        elif i == "omelette":
-            prix_tot += 6
         elif i == "Tortilla aux œufs":
             prix_tot += 7
         elif i == "burger":
             prix_tot += 11
+        elif i==
 
 
+
+
+
+        elif i == "crêpes":
+            prix_tot += 5.5
+        elif i == "omelette":
+            prix_tot += 6
+        elif i == "Bagel":
+            prix_tot +=4.5
+        elif i== "Smoothie":
+            prix_tot += 5.0
+        elif i== "pain":
+            prix_tot += 3.5
+        elif i== "jus d'orange":
+            prix_tot += 3.0
+        elif i== "croissant":
+             prix_tot += 3.5
+        elif i== "café":
+             prix_tot += 4.0
+        elif i== "céréales":
+            prix_tot +=5.0
+        elif i== "pomme":
+            prix_tot += 2.0
+
+
+
+
+
+
+
+
+def obtenir_jour_actuel(): #yvan
+    """
+    demande à l'utilisateur le jour de la semaine.
+    :return: le jour de la semaine
+    """
+    jour = input("quel jour de la semaine sommes-nous? (lundi à vendredi?): ").lower()
+    return jour
 
 
 if __name__=="__main__":

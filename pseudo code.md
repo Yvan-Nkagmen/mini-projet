@@ -1,4 +1,4 @@
-FONCTION verifier_heure(heure)
+FONCTION verifier_heure(heure)#yvan
 
     SI heure < 7 OU heure >= 15 ALORS
         RETOURNER "fermé"
@@ -8,7 +8,7 @@ FONCTION verifier_heure(heure)
         RETOURNER "dîner"
     FIN FONCTION
 
-FONCTION obtenir_menu_du_jour(service, jour)
+FONCTION obtenir_menu_du_jour(service, jour) #djawad
 
     SI service == "déjeuner" ALORS
         menus_du_dejeuner ← [
@@ -26,7 +26,7 @@ FONCTION obtenir_menu_du_jour(service, jour)
         RETOURNER le menu correspondant au jour dans menus_du_diner
     
     FIN FONCTION
-FONCTION afficher_menu(menu)
+FONCTION afficher_menu(menu)#yvan
 
     POUR chaque plat, prix dans menu FAIRE
         AFFICHER plat + " - " + prix + "$"
@@ -55,3 +55,16 @@ FONCTION afficher_message_fermeture()
 
     AFFICHER "La cafétéria est fermée. Heures d'ouverture : 7h à 15h"
     FIN FONCTION
+
+AFFICHER_PERSONNEL()
+    
+    AFFICHER LE CUISINIER
+    AFFICHER CAISSIER
+FIN
+
+OBTENIR_JOUR_ACTUEL()#YVAN
+
+    AFFICHER QUEL JOUR SOMMES-NOUS
+    LIRE JOUR
+    JOUR = INPUT DE L'UTILISATEUR
+FIN
