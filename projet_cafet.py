@@ -30,7 +30,7 @@ def obtenir_menu_du_jour(service, jour): #djawad
             ["Mardi": {"Burger": 11, "Soupe + sandwich": 8.5}],
             ["Mercredi": {"poulet au curry"}]
         ]
-hhh
+
 
 
 
@@ -101,7 +101,22 @@ def generer_facture(commande : list): #Keyshawn
         elif i== "pomme":
             prix_tot += 2.0
 
+def afficher_message_fermeture(): #Yvan
+    """
+    Affiche un message indiquant que la cafétéria est fermée.
+    :return: None
+    """
 
+    print("La cafétéria est fermée. Heures d'ouverture : 7h à 15h")
+
+def afficher_personnel(): #Djawad
+    """
+    Affiche la liste du personnel présent.
+    :return: None
+    """
+
+    print("Cuisinier")
+    print("Caissier")
 
 
 
@@ -116,6 +131,51 @@ def obtenir_jour_actuel(): #yvan
     jour = input("quel jour de la semaine sommes-nous? (lundi à vendredi?): ").lower()
     return jour
 
+if __name__ == "__main__":
+        print("Bienvenue à la cafétéria !")
 
-if __name__=="__main__":
-    print("")
+        # Choisir personnel(djawad)
+        cuisinier = input("Nom du cuisinier : ")
+        caissier = input("Nom du caissier : ")
+        afficher_personnel(cuisinier, caissier)
+
+        # Obtenir heure valide(yvan)
+        while True:
+            try:
+                heure = int(input("Entrez l'heure actuelle (0-23) : "))
+                if 0 <= heure <= 23:
+                    break
+                else:
+                    print("L'heure doit être entre 0 et 23.")
+            except ValueError:
+                print("Entrée invalide. Veuillez entrer un nombre entier.")
+
+        service = verifier_heure(heure)
+
+        if service == "fermé":
+            afficher_message_fermeture()
+        else:
+            print(f"Service actuel : {service}")
+            jour = obtenir_jour_actuel()
+            menu = obtenir_menu_du_jour(service, jour)
+
+            if not menu:
+                print(f"Aucun menu disponible pour {jour}.")
+            else:
+                afficher_menu(menu)
+
+                # Boucle commandes(keyshawn)
+                commandes = []
+                while True:
+                    commande = prendre_commande(menu)
+                    commandes.append(commande)
+
+                    continuer = input("Voulez-vous commander un autre plat ? (oui/non) : ").lower()
+                    if continuer != "oui":
+                        break
+
+                # Modifier ou supprimer commandes si besoin
+                commandes = modifier_commandes(commandes, menu)
+
+                # Générer la facture finale
+                generer_facture(commandes, caissier, cuisinier)
