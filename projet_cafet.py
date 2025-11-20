@@ -14,22 +14,31 @@ def verifier_heure(heure):  #yvan
 
 
 
-def obtenir_menu_du_jour(service, jour): #djawad
+def obtenir_menu_du_jour(service,jour): #djawad
+    """
+    cette fonction liste le service et les prix de chaque plat
+    du menus au déjeuner et du diner et les retourne
+    :param service: le service du jour
+    :return: le service du dejeuner et diner
+    """
     if service=="dejeuner":
-        menus_du_dejeuner = [
-        ["Lundi": {"Crêpes": 5.5, "Omelette": 6}],
-        ["Mardi": {"Bagel": 4.5, "Smoothie": 5.0}],
-        ["Mercredi": {"pain": 3.5, "jus d'orange": 3.0}],
-        ["jeudi":{"croissant": 3.5, "café": 4.0}],
-        ["vendredi": {"céréales": 5.0, "pomme": 2.0}]
-    ]
+        menus_du_dejeuner ={
+        "Lundi": {"Crêpes": 5.5, "Omelette": 6},
+        "Mardi": {"Bagel": 4.5, "Smoothie": 5.0},
+        "Mercredi": {"pain": 3.5, "jus d'orange": 3.0},
+        "jeudi":{"croissant": 3.5, "café": 4.0},
+        "vendredi": {"céréales": 5.0, "pomme": 2.0}
+        }
         return menus_du_dejeuner
     else:
-        menus_du_diner = [
-            ["Lundi": {"Poulet rôti": 12, "Pâtes Alfredo": 10.5}],
-            ["Mardi": {"Burger": 11, "Soupe + sandwich": 8.5}],
-            ["Mercredi": {"poulet au curry"}]
-        ]
+        menus_du_diner = {
+            "Lundi": {"Poulet rôti": 12, "Pâtes Alfredo": 10.5},
+            "Mardi": {"Burger": 11, "Soupe + sandwich": 8.5},
+            "Mercredi": {"poulet au curry + riz": 15},
+            "Jeudi":{"frites": 3.5, "poulet au beurre": 7.0},
+            "Vendredi": {"riz frit chinois": 10 , "boeuf braisé": 5}
+        }
+        return menus_du_diner
 
 
 
@@ -63,7 +72,11 @@ def prendre_commande(): #Keyshawn
             break
 
 
-def generer_facture(commande : list): #Keyshawn
+def generer_facture(commande : list): #djawad
+    """
+    cette fonction faire choisir le plat que le client souhaite et génere la factureé
+    :param commande: liste des commandes
+    """
     prix_tot = 0
     for i in commande:
         if i == "poulet rôti":
@@ -74,12 +87,18 @@ def generer_facture(commande : list): #Keyshawn
             prix_tot += 7
         elif i == "burger":
             prix_tot += 11
-        elif i==
-
-
-
-
-
+        elif i== "Soupe + sandwich":
+            prix_tot += 8.5
+        elif i== "poulet au curry + riz":
+            prix_tot += 15
+        elif i== "frites":
+            prix_tot += 3.5
+        elif i== "poulet au beurre":
+            prix_tot += 7.0
+        elif i== "riz frit chinois":
+            prix_tot += 10
+        elif i== "boeuf braisé":
+            prix_tot += 5
         elif i == "crêpes":
             prix_tot += 5.5
         elif i == "omelette":
@@ -109,15 +128,6 @@ def afficher_message_fermeture(): #Yvan
 
     print("La cafétéria est fermée. Heures d'ouverture : 7h à 15h")
 
-def afficher_personnel(): #Djawad
-    """
-    Affiche la liste du personnel présent.
-    :return: None
-    """
-
-    print("Cuisinier")
-    print("Caissier")
-
 
 
 
@@ -134,10 +144,6 @@ def obtenir_jour_actuel(): #yvan
 if __name__ == "__main__":
         print("Bienvenue à la cafétéria !")
 
-        # Choisir personnel(djawad)
-        cuisinier = input("Nom du cuisinier : ")
-        caissier = input("Nom du caissier : ")
-        afficher_personnel(cuisinier, caissier)
 
         # Obtenir heure valide(yvan)
         while True:
@@ -152,7 +158,7 @@ if __name__ == "__main__":
 
         service = verifier_heure(heure)
 
-        if service == "fermé":
+        if service == "fermé":  #djawad
             afficher_message_fermeture()
         else:
             print(f"Service actuel : {service}")
